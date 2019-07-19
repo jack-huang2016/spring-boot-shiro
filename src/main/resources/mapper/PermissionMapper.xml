@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.springboot.sample.mapper.PermissionMapper" >
+  <resultMap id="BaseResultMap" type="com.springboot.sample.entity.Permission" >
+    <result column="id" property="id" jdbcType="INTEGER" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="permission_name" property="permissionName" jdbcType="VARCHAR" />
+  </resultMap>
+  
+  <sql id="columnNames">
+  	id, remarks, permission_name
+  </sql>
+
+  <select id="getPermissionsByUserName" resultMap="BaseResultMap" parameterType="String">
+  	select p.* from 
+	test_user u, test_role r, test_permission p, test_user_role ur, test_role_permission rp 
+	<where>
+     		u.id = ur.user_id and r.id = ur.role_id and r.id = rp.role_id and rp.permission_id = p.id  
+		   	and u.user_name = #{userName}
+     </where>
+  </select>
+ 
+</mapper>
