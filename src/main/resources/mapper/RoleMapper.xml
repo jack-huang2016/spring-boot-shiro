@@ -5,10 +5,12 @@
     <result column="id" property="id" jdbcType="INTEGER" />
     <result column="remarks" property="remarks" jdbcType="VARCHAR" />
     <result column="role_name" property="roleName" jdbcType="VARCHAR" />
+    <result column="create_time" property="createdTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updatedTime" jdbcType="TIMESTAMP" />
   </resultMap>
   
   <sql id="columnNames">
-  	id, remarks, role_name
+  	id, remarks, role_name, create_time, update_time
   </sql>
 
   <select id="getRolesByUserName" resultMap="BaseResultMap" parameterType="String">

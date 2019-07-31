@@ -5,10 +5,12 @@
     <result column="id" property="id" jdbcType="INTEGER" />
     <result column="remarks" property="remarks" jdbcType="VARCHAR" />
     <result column="permission_name" property="permissionName" jdbcType="VARCHAR" />
+    <result column="create_time" property="createdTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updatedTime" jdbcType="TIMESTAMP" />
   </resultMap>
   
   <sql id="columnNames">
-  	id, remarks, permission_name
+  	id, remarks, permission_name, create_time, update_time
   </sql>
 
   <select id="getPermissionsByUserName" resultMap="BaseResultMap" parameterType="String">

@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html>
-
-	<head>
+	
+<head>
 		<meta charset="UTF-8">
+		<#assign basePath = springMacroRequestContext.getContextPath()/>
 		<title>登录页面</title>
-		<link rel="stylesheet" href="static/layui/css/layui.css" />
-		<script type="text/javascript" src="static/js/jquery-1.9.1.min.js"></script>
+		<link type="text/css" rel="stylesheet" href="${basePath}/layui/css/layui.css" />
+		<script type="text/javascript" src="${basePath}/js/jquery-1.9.1.min.js"></script>
 		<style type="text/css">
 		</style>
-	</head>
+	
+</head>
 
 	<body>
 		<br />
@@ -35,14 +37,12 @@
 	
 	<script type="text/javascript">
 		$("#loginBtn").click(function() {
-			$.post("http://localhost:8081/myShiro/user/login", {
+			$.post("${basePath}/user/login", {
 				userName: $("#userName").val(),
 				password: $("#password").val(),
 			}, function(result) {
 				if(result.success) {
-					window.location.href = "main.html";
-					//必须加上，否则跳转不了
-					return false;
+					location.href = 'index';
 				} else {
 					alert(result.errorInfo);
 				}

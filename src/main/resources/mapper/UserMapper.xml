@@ -6,10 +6,16 @@
     <result column="password" property="password" jdbcType="VARCHAR" />
     <result column="remarks" property="remarks" jdbcType="VARCHAR" />
     <result column="user_name" property="userName" jdbcType="VARCHAR" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="isLocked" property="isLocked" jdbcType="INTEGER" />
+    <result column="create_time" property="createdTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updatedTime" jdbcType="TIMESTAMP" />
   </resultMap>
   
   <sql id="columnNames">
-  	id, password, remarks, user_name
+  	id, password, remarks, user_name, email, phone, status, isLocked, create_time, update_time
   </sql>
 
   <select id="getUserByUserName" resultMap="BaseResultMap" parameterType="String" >

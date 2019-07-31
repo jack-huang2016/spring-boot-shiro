@@ -11,5 +11,5 @@ public class SpringBootUrpApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SpringBootUrpApplication.class, args);
 	}
-
+	
 }

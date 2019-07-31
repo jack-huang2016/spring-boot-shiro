@@ -3,9 +3,10 @@
 
 	<head>
 		<meta charset="UTF-8">
+		<#assign basePath = springMacroRequestContext.getContextPath()/>
 		<title>主页</title>
-		<link rel="stylesheet" href="static/layui/css/layui.css" />
-		<script type="text/javascript" src="static/js/jquery-1.9.1.min.js"></script>
+		<link rel="stylesheet" href="${basePath}/layui/css/layui.css" />
+		<script type="text/javascript" src="${basePath}/js/jquery-1.9.1.min.js"></script>
 		<style type="text/css">
 			body {
 				margin: 50px;
@@ -40,11 +41,11 @@
 		</button>
 		
 		<hr/>
-		<a class="layui-btn layui-btn-sm layui-btn-primary" href="logout">注销</a>
+		<a class="layui-btn layui-btn-sm layui-btn-primary" href="${basePath}/user/logout">注销</a>
 	</body>
 	<script type="text/javascript">
 		$("#selectBtn").click(function() {
-			$.post("http://localhost:8081/myShiro/user/select", {}, function(result) {
+			$.post("${basePath}/user/select", {}, function(result) {
 				if(result.success) {
 					alert(result.msg);
 					return false;
@@ -55,7 +56,7 @@
 			});
 		});
 		$("#insertBtn").click(function() {
-			$.post("http://localhost:8081/myShiro/user/insert", {}, function(result) {
+			$.post("${basePath}/user/insert", {}, function(result) {
 				if(result.success) {
 					alert(result.msg);
 					return false;
@@ -66,7 +67,7 @@
 			});
 		});
 		$("#updateBtn").click(function() {
-			$.post("http://localhost:8081/myShiro/user/update", {}, function(result) {
+			$.post("${basePath}/user/update", {}, function(result) {
 				if(result.success) {
 					alert(result.msg);
 					return false;
@@ -77,7 +78,7 @@
 			});
 		});
 		$("#deleteBtn").click(function() {
-			$.post("http://localhost:8081/myShiro/user/delete", {}, function(result) {
+			$.post("${basePath}/user/delete", {}, function(result) {
 				if(result.success) {
 					alert(result.msg);
 					return false;
@@ -88,7 +89,7 @@
 			});
 		});
 		$("#vipBtn").click(function() {
-			$.post("http://localhost:8081/myShiro/user/vip", {}, function(result) {
+			$.post("${basePath}/user/vip", {}, function(result) {
 				if(result.success) {
 					alert(result.msg);
 					return false;
@@ -99,7 +100,7 @@
 			});
 		});
 		$("#ipBtn").click(function() {
-			$.post("http://localhost:8081/myShiro/user/ip", {}, function(result) {
+			$.post("${basePath}/user/ip", {}, function(result) {
 				if(result.success) {
 					alert(result.msg);
 					return false;
@@ -110,7 +111,7 @@
 			});
 		});
 		$("#pBtn").click(function() {
-			$.post("http://localhost:8081/myShiro/user/p", {}, function(result) {
+			$.post("${basePath}/user/p", {}, function(result) {
 				if(result.success) {
 					alert(result.msg);
 					return false;
